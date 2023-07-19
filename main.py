@@ -40,6 +40,9 @@ while not game_over:
 
     x1 = x1 + x1_change
     y1 = y1 + y1_change
+    if x1>800 or x1<0 or y1>600 or y1<0:
+        break
+
     dis.fill(white)
     pygame.draw.rect(dis, black, [x1, y1, 10, 10])
 
