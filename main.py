@@ -44,7 +44,7 @@ while not game_over:
         break
 
     dis.fill(white)
-    pygame.draw.rect(dis, black, [x1, y1, 10, 10])
+    pygame.draw.rect(dis, black, [x1, y1, 40, 40])
 
     pygame.display.update()
 
