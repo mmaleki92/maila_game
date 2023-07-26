@@ -21,6 +21,13 @@ y1 = 300
 x1_change = 0        
 y1_change = 0
 
+
+def fire(dis, x1, y1):
+    for i in range(10):
+        pygame.draw.rect(dis, red, [x1+random.randint(-50, 90), y1+random.randint(-50, 90), 8, 8])
+
+
+
 clock = pygame.time.Clock()
 x2, y2 = 50, 0 
 while not game_over:
@@ -53,11 +60,11 @@ while not game_over:
         y1=dis_y
     
         
-
-
     dis.fill(white)
       
     pygame.draw.rect(dis, black, [x1, y1, 40, 40])
+
+    fire(dis, x1, y1)
 
     pygame.display.update()
 
