@@ -7,7 +7,10 @@ white = (255, 255, 255)
 black = (0, 0, 0)
 red = (255, 0, 0)
 green = (0, 255, 0)
-dis = pygame.display.set_mode((800, 600))
+
+dis_x = 1000
+dis_y = 600
+dis = pygame.display.set_mode((dis_x, dis_y))
 pygame.display.set_caption("Maila's Game")
 
 game_over = False
@@ -40,14 +43,14 @@ while not game_over:
 
     x1 = x1 + x1_change
     y1 = y1 + y1_change
-    if x1>800:
+    if x1>dis_x:
         x1=0
     elif x1<0:
-        x1=800
-    if y1>600:
+        x1=dis_x
+    if y1>dis_y:
         y1=0
     elif y1<0:
-        y1=600
+        y1=dis_y
     
         
 
