@@ -53,17 +53,7 @@ while not game_over:
 
 
     dis.fill(white)
-    y2 = y2 + 5
-
-    random.randint(0, 800)
-    for x2 in range(0, 800, 200):
-        pygame.draw.rect(dis, red, [x2, y2, 40, 40])
-
-        if x2-40<x1<x2+40 and y2-40<y1<y2+40 :
-            game_over = True
-    if y2 > 600:
-        y2 = 0
-        
+      
     pygame.draw.rect(dis, black, [x1, y1, 40, 40])
 
     pygame.display.update()
