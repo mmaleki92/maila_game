@@ -20,7 +20,8 @@ y1 = 300
 
 x1_change = 0        
 y1_change = 0
-
+size_x=40
+size_y=40
 
 def fire(dis, x1, y1):
     for i in range(10):
@@ -62,7 +63,7 @@ while not game_over:
         
     dis.fill(white)
       
-    pygame.draw.rect(dis, black, [x1, y1, 40, 40])
+    pygame.draw.rect(dis, black, [x1, y1, size_x, size_y])
 
     fire(dis, x1, y1)
 
