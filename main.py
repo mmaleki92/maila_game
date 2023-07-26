@@ -53,6 +53,7 @@ while not game_over:
     y1 = y1 + y1_change
     if x1>dis_x:
         x1=0
+        size_x = size_x + 5
     elif x1<0:
         x1=dis_x
     if y1>dis_y:
