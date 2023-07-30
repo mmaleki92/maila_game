@@ -53,14 +53,16 @@ while not game_over:
     y1 = y1 + y1_change
     if x1>dis_x:
         x1=0
-        size_x = size_x + 5
+        size_x = size_x + 50
     elif x1<0:
+        size_x=size_x-25
         x1=dis_x
     if y1>dis_y:
+        size_y=size_y+100
         y1=0
     elif y1<0:
         y1=dis_y
-    
+        size_y=size_y-50
         
     dis.fill(white)
       
@@ -70,7 +72,7 @@ while not game_over:
 
     pygame.display.update()
 
-    clock.tick(30)
+    clock.tick(90)
 
 pygame.quit()
 quit()
