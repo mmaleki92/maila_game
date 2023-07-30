@@ -1,12 +1,14 @@
 import pygame
 import random
-pygame.init()
 
+pygame.init()
+pygame.mixer.init() # add this line
 # Red Green Blue
 white = (255, 255, 255)
 black = (0, 0, 0)
 red = (255, 0, 0)
 green = (0, 255, 0)
+music = pygame.mixer.music.load('alarm.wav')
 
 dis_x = 1000
 dis_y = 600
@@ -18,10 +20,12 @@ game_over = False
 x1 = 300
 y1 = 300
 
+
 x1_change = 0        
 y1_change = 0
-size_x=40
-size_y=40
+
+size_x = 40
+size_y = 40
 
 def fire(dis, x1, y1):
     for i in range(10):
@@ -30,8 +34,10 @@ def fire(dis, x1, y1):
 
 
 clock = pygame.time.Clock()
-x2, y2 = 50, 0 
-while not game_over:
+x2, y2 = 50, 0
+bullet = False
+
+while not game_over:    
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             game_over = True
@@ -51,6 +57,7 @@ while not game_over:
 
     x1 = x1 + x1_change
     y1 = y1 + y1_change
+
     if x1>dis_x:
         x1=0
         size_x = size_x + 50
@@ -62,17 +69,19 @@ while not game_over:
         y1=0
     elif y1<0:
         y1=dis_y
-        size_y=size_y-50
+    size_y=size_y-50
         
     dis.fill(white)
       
     pygame.draw.rect(dis, black, [x1, y1, size_x, size_y])
 
-    fire(dis, x1, y1)
+    if (dis_x - x1)<40 or (dis_y - y1)<40 :
+        fire(dis, x1, y1)
+        pygame.mixer.music.play(2)
 
     pygame.display.update()
 
-    clock.tick(90)
+    clock.tick(30)
 
 pygame.quit()
 quit()
