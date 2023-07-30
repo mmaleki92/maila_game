@@ -74,7 +74,7 @@ while not game_over:
         y1 = y1 + 5
     elif y1<0:
         y1=dis_y
-    size_y=size_y-50
+        size_y=size_y-5
         
     dis.fill(white)
       
