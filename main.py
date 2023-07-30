@@ -27,7 +27,7 @@ y1_change = 0
 size_x = 40
 size_y = 40
 
-obstacles = [(50, 0), (100, 0), (150, 0), (200, 0), (250, 0), (300, 0), (400, 0), (500, 0)]
+obstacles = [(50, 100), (100,100), (150, 100), (200,100), (250,100), (300, 100), (400, 100), (500, 100)]
 
 def fire(dis, x1, y1):
     for i in range(10):
@@ -84,7 +84,7 @@ while not game_over:
 
     if (dis_x - x1)<40 or (dis_y - y1)<40 :
         fire(dis, x1, y1)
-        pygame.mixer.music.play(2)
+        #pygame.mixer.music.play(2)
 
     pygame.display.update()
 
