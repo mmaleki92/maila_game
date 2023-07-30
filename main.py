@@ -27,11 +27,15 @@ y1_change = 0
 size_x = 40
 size_y = 40
 
+obstacles = [(50, 0), (100, 0), (150, 0), (200, 0), (250, 0), (300, 0), (400, 0), (500, 0)]
+
 def fire(dis, x1, y1):
     for i in range(10):
         pygame.draw.rect(dis, red, [x1+random.randint(-50, 90), y1+random.randint(-50, 90), 8, 8])
 
-
+def obstacle(dis):
+    for obs in obstacles:
+        pygame.draw.rect(dis, green, [obs[0], obs[1], 40, 40])
 
 clock = pygame.time.Clock()
 x2, y2 = 50, 0
@@ -48,12 +52,12 @@ while not game_over:
             elif event.key == pygame.K_RIGHT:
                 x1_change = 10
                 y1_change = 0
-            elif event.key == pygame.K_UP:
-                y1_change = -10
-                x1_change = 0
-            elif event.key == pygame.K_DOWN:
-                y1_change = 10
-                x1_change = 0
+            # elif event.key == pygame.K_UP:
+            #     y1_change = -10
+            #     x1_change = 0
+            # elif event.key == pygame.K_DOWN:
+            #     y1_change = 10
+            #     x1_change = 0
 
     x1 = x1 + x1_change
     y1 = y1 + y1_change
@@ -72,6 +76,8 @@ while not game_over:
     dis.fill(white)
       
     pygame.draw.rect(dis, black, [x1, y1, size_x, size_y])
+
+    obstacle(dis)
 
     if (dis_x - x1)<40 or (dis_y - y1)<40 :
         fire(dis, x1, y1)
