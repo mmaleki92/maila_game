@@ -29,7 +29,7 @@ size_y = 100
 
 obstacles = [(50, 100), (100,100), (150, 100), (200,100), (250,100), (300, 100), (400, 100), (500, 100)]
 
-player_image = pygame.image.load('player_1.png')  # Load the player image
+player_image = pygame.image.load('player.png')  # Load the player image
 player_image = pygame.transform.scale(player_image1, (size_x, size_y))  # Scale the image if needed
 
 
