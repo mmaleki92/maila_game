@@ -29,6 +29,9 @@ size_y = 40
 
 obstacles = [(50, 100), (100,100), (150, 100), (200,100), (250,100), (300, 100), (400, 100), (500, 100)]
 
+player_image = pygame.image.load('player.png')  # Load the player image
+player_image = pygame.transform.scale(player_image, (size_x, size_y))  # Scale the image if needed
+
 def fire(dis, x1, y1):
     for i in range(10):
         pygame.draw.rect(dis, red, [x1+random.randint(-50, 90), y1+random.randint(-50, 90), 8, 8])
@@ -78,7 +81,8 @@ while not game_over:
         
     dis.fill(white)
       
-    pygame.draw.rect(dis, black, [x1, y1, size_x, size_y])
+ #   pygame.draw.rect(dis, black, [x1, y1, size_x, size_y])
+    dis.blit(player_image, (x1, y1))
 
     obstacle(dis)
 
