@@ -30,11 +30,7 @@ size_y = 100
 obstacles = [(50, 100), (200,300), (300, 600), (200,100), (250,100), (300, 100), (400, 100), (500, 100)]
 
 player_image = pygame.image.load('player.png')  # Load the player image
-<<<<<<< HEAD
-player_image = pygame.transform.scale(player_image1, (size_x, size_y))  # Scale the image if needed
-=======
 player_image = pygame.transform.scale(player_image, (size_x, size_y))  # Scale the image if needed
->>>>>>> f0119eb9278e5ce150400ca4c84c8cd9f0653ff7
 
 
 def fire(dis, x1, y1):
