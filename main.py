@@ -27,10 +27,14 @@ y1_change = 0
 size_x = 100
 size_y = 100
 
-obstacles = [(50, 100), (100,100), (150, 100), (200,100), (250,100), (300, 100), (400, 100), (500, 100)]
+obstacles = [(50, 100), (200,300), (300, 600), (200,100), (250,100), (300, 100), (400, 100), (500, 100)]
 
 player_image = pygame.image.load('player.png')  # Load the player image
+<<<<<<< HEAD
 player_image = pygame.transform.scale(player_image1, (size_x, size_y))  # Scale the image if needed
+=======
+player_image = pygame.transform.scale(player_image, (size_x, size_y))  # Scale the image if needed
+>>>>>>> f0119eb9278e5ce150400ca4c84c8cd9f0653ff7
 
 
 def fire(dis, x1, y1):
@@ -66,19 +70,21 @@ while not game_over:
     x1 = x1 + x1_change
     y1 = y1 + y1_change
 
-    if x1>dis_x:
-        x1=0
-        size_x = size_x + 50
-    elif x1<0:
-        size_x=size_x-25
-        x1=dis_x
-    if y1>dis_y:
-        size_y=size_y+100
-        y1=0
-        y1 = y1 + 5
-    elif y1<0:
-        y1=dis_y
-        size_y=size_y-5
+    if (x1, y1) in obstacles:
+        break
+    # if x1>dis_x:
+    #     x1=0
+    #     size_x = size_x + 50
+    # elif x1<0:
+    #     size_x=size_x-25
+    #     x1=dis_x
+    # if y1>dis_y:
+    #     size_y=size_y+100
+    #     y1=0
+    #     y1 = y1 + 5
+    # elif y1<0:
+    #     y1=dis_y
+    #     size_y=size_y-5
         
     dis.fill(white)
       
@@ -93,7 +99,7 @@ while not game_over:
 
     pygame.display.update()
 
-    clock.tick(10)
+    clock.tick(2)
 
 pygame.quit()
 quit()
