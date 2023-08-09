@@ -5,10 +5,10 @@ pygame.init()
 pygame.mixer.init() # add this line
 # Red Green Blue
 white = (255, 255, 255)
-black = (0, 0, 0)
+black = (0, 50, 0)
 red = (255, 0, 0)
 green = (0, 255, 0)
-music = pygame.mixer.music.load('alarm.wav')
+music = pygame.mixer.music.load('creepy sound.mp3')
 
 dis_x = 1200
 dis_y = 700
@@ -44,8 +44,6 @@ def obstacle(dis):
         pygame.draw.rect(dis, green, [obs[0], obs[1], 40, 40])
 
 clock = pygame.time.Clock()
-x2, y2 = 50, 0
-bullet = False
 
 while not game_over:    
     for event in pygame.event.get():
