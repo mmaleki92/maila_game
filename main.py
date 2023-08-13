@@ -8,7 +8,7 @@ white = (255, 255, 255)
 black = (0, 50, 0)
 red = (255, 0, 0)
 green = (0, 255, 0)
-pygame.mixer.music.load('creepy sound.mp3')
+music = pygame.mixer.music.load('creepy sound.mp3')
 
 dis_x = 1200
 dis_y = 700
@@ -42,6 +42,13 @@ def fire(dis, xghost, yghost):
 def obstacle(dis):
     for obs in obstacles:
         pygame.draw.rect(dis, green, [obs[0], obs[1], 40, 40])
+
+def xwall(x):
+    if x>dis_x:
+        x = 0
+    elif x<0:
+        x = dis_x
+    return x
 
 clock = pygame.time.Clock()
 pygame.mixer.music.play(loops = 1, start = 0, fade_ms= 30)
@@ -81,16 +88,24 @@ while not game_over:
     # elif yghost<0:
     #     yghost=dis_y
     #     size_y=size_y-5
-        
+
     dis.fill(black)
     if xghost - xgreen>0:
-        xgreen = xgreen + 10
-    else :
-        xgreen = xgreen - 10
+        xgreen = xgreen + 50
+    else:
+        xgreen = xgreen - 50
     if yghost - ygreen>0:
-        ygreen = ygreen + 10
-    else :
-        ygreen = ygreen - 10
+        ygreen = ygreen + 50
+    else:
+        ygreen = ygreen - 50
+    
+    xghost = xwall(xghost)
+
+    if yghost>dis_y:
+        yghost = 0
+    elif yghost<0:
+        yghost = dis_y
+
     # pygame.draw.rect(dis, green, [xgreen, ygreen, size_x, size_y])
     dis.blit(player_image, (xghost, yghost))
     dis.blit(black_ghost_image, (xgreen, ygreen))
