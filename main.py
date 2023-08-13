@@ -8,7 +8,7 @@ white = (255, 255, 255)
 black = (0, 50, 0)
 red = (255, 0, 0)
 green = (0, 255, 0)
-music = pygame.mixer.music.load('creepy sound.mp3')
+pygame.mixer.music.load('creepy sound.mp3')
 
 dis_x = 1200
 dis_y = 700
@@ -44,7 +44,7 @@ def obstacle(dis):
         pygame.draw.rect(dis, green, [obs[0], obs[1], 40, 40])
 
 clock = pygame.time.Clock()
-
+pygame.mixer.music.play(loops = 1, start = 0, fade_ms= 30)
 while not game_over:    
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
@@ -98,7 +98,7 @@ while not game_over:
 
     # if (dis_x - xghost)<40 or (dis_y - yghost)<40 :
     #     fire(dis, xghost, yghost)
-        #pygame.mixer.music.play(2)
+
 
     pygame.display.update()
 
