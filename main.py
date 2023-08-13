@@ -58,15 +58,15 @@ def ywall(y):
     return y
 
 clock = pygame.time.Clock()
-def chase(xgreen, ygreen, xghost, yghost):
+def chase(xgreen, ygreen, xghost, yghost, speed):
     if xghost - xgreen>0:
-        xgreen = xgreen + 50
+        xgreen = xgreen + speed
     else:
-        xgreen = xgreen - 50
+        xgreen = xgreen - speed
     if yghost - ygreen>0:
-        ygreen = ygreen + 50
+        ygreen = ygreen + speed
     else:
-        ygreen = ygreen - 50
+        ygreen = ygreen - speed
     return xgreen, ygreen
 while not game_over:    
     for event in pygame.event.get():
@@ -106,7 +106,7 @@ while not game_over:
     #     size_y=size_y-5
 
     dis.fill(black)
-    xgreen, ygreen = chase(xgreen, ygreen, xghost, yghost)  
+    xgreen, ygreen = chase(xgreen, ygreen, xghost, yghost, 10)  
     xghost = xwall(xghost)
 
     yghost = ywall(yghost)
