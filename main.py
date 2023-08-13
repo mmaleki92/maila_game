@@ -68,11 +68,9 @@ def chase(xgreen, ygreen, xghost, yghost, speed):
     else:
         ygreen = ygreen - speed
     return xgreen, ygreen
-while not game_over:    
-    for event in pygame.event.get():
-        if event.type == pygame.QUIT:
-            game_over = True
-        if event.type == pygame.KEYDOWN:
+
+def movement(event):
+    if event.type == pygame.KEYDOWN:
             if event.key == pygame.K_LEFT:
                 xghost_change = -50
                 yghost_change = 0
@@ -85,7 +83,13 @@ while not game_over:
             elif event.key == pygame.K_DOWN:
                 yghost_change = 50
                 xghost_change = 0
+    return xghost_change, yghost_change
+while not game_over:    
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            game_over = True
 
+        xghost_change, yghost_change = movement(event)
     xghost = xghost + xghost_change
     yghost = yghost + yghost_change
 
