@@ -50,8 +50,24 @@ def xwall(x):
         x = dis_x
     return x
 
+def ywall(y):
+    if y>dis_y:
+        y = 0
+    elif y<0:
+        y = dis_y
+    return y
+
 clock = pygame.time.Clock()
-pygame.mixer.music.play(loops = 1, start = 0, fade_ms= 30)
+def chase(xgreen, ygreen, xghost, yghost):
+    if xghost - xgreen>0:
+        xgreen = xgreen + 50
+    else:
+        xgreen = xgreen - 50
+    if yghost - ygreen>0:
+        ygreen = ygreen + 50
+    else:
+        ygreen = ygreen - 50
+    return xgreen, ygreen
 while not game_over:    
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
@@ -90,21 +106,10 @@ while not game_over:
     #     size_y=size_y-5
 
     dis.fill(black)
-    if xghost - xgreen>0:
-        xgreen = xgreen + 50
-    else:
-        xgreen = xgreen - 50
-    if yghost - ygreen>0:
-        ygreen = ygreen + 50
-    else:
-        ygreen = ygreen - 50
-    
+    xgreen, ygreen = chase(xgreen, ygreen, xghost, yghost)  
     xghost = xwall(xghost)
 
-    if yghost>dis_y:
-        yghost = 0
-    elif yghost<0:
-        yghost = dis_y
+    yghost = ywall(yghost)
 
     # pygame.draw.rect(dis, green, [xgreen, ygreen, size_x, size_y])
     dis.blit(player_image, (xghost, yghost))
