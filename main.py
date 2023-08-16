@@ -7,7 +7,7 @@ pygame.mixer.init() # add this line
 white = (255, 255, 255)
 black = (0, 50, 0)
 red = (255, 0, 0)
-green = (0, 255, 0)
+green = (0, 0, 0)
 music = pygame.mixer.music.load('creepy sound.mp3')
 
 dis_x = 1200
@@ -25,12 +25,12 @@ xghost_change = 0
 yghost_change = 0
 
 size_x = 100
-size_y = 100
+size_y = 180
 xgreen = dis_x / 2
 ygreen = dis_y / 2
 obstacles = [(50, 100), (700,300), (550, 750), (200,100), (250,600), (300, 100), (450, 100), (850, 700)]
-
-player_image = pygame.image.load('player.png')  # Load the player image
+bg = pygame.image.load("minecraft background.jpg")
+player_image = pygame.image.load('unnamed.png')  # Load the player image
 player_image = pygame.transform.scale(player_image, (size_x, size_y))  # Scale the image if needed
 black_ghost_image = pygame.image.load('black ghost.png')  # Load the player image
 black_ghost_image = pygame.transform.scale(black_ghost_image, (size_x, size_y))  # Scale the image if needed
@@ -117,7 +117,7 @@ while not game_over:
     xghost = xwall(xghost)
 
     yghost = ywall(yghost)
-
+    dis.blit(bg, (0, 0))
     # pygame.draw.rect(dis, green, [xgreen, ygreen, size_x, size_y])
     dis.blit(player_image, (xghost, yghost))
     dis.blit(black_ghost_image, (xgreen, ygreen))
