@@ -30,6 +30,8 @@ xgreen = dis_x / 2
 ygreen = dis_y / 2
 obstacles = [(50, 100), (700,300), (550, 750), (200,100), (250,600), (300, 100), (450, 100), (850, 700)]
 bg = pygame.image.load("minecraft background.jpg")
+bg = pygame.transform.scale(bg, (dis_x, dis_y))  # Scale the image if needed
+
 player_image = pygame.image.load('unnamed.png')  # Load the player image
 player_image = pygame.transform.scale(player_image, (size_x, size_y))  # Scale the image if needed
 black_ghost_image = pygame.image.load('black ghost.png')  # Load the player image
@@ -96,21 +98,6 @@ while not game_over:
     xghost = xghost + xghost_change
     yghost = yghost + yghost_change
 
-    # if (xghost, yghost) in obstacles:
-    #     break
-    # if xghost>dis_x:
-    #     xghost=0
-    #     size_x = size_x + 50
-    # elif xghost<0:
-    #     size_x=size_x-25
-    #     xghost=dis_x
-    # if yghost>dis_y:
-    #     size_y=size_y+100
-    #     yghost=0
-    #     yghost = yghost + 5
-    # elif yghost<0:
-    #     yghost=dis_y
-    #     size_y=size_y-5
 
     dis.fill(black)
     xgreen, ygreen = chase(xgreen, ygreen, xghost, yghost, 10)  
@@ -118,14 +105,8 @@ while not game_over:
 
     yghost = ywall(yghost)
     dis.blit(bg, (0, 0))
-    # pygame.draw.rect(dis, green, [xgreen, ygreen, size_x, size_y])
     dis.blit(player_image, (xghost, yghost))
     dis.blit(black_ghost_image, (xgreen, ygreen))
-   # obstacle(dis)
-
-    # if (dis_x - xghost)<40 or (dis_y - yghost)<40 :
-    #     fire(dis, xghost, yghost)
-
 
     pygame.display.update()
 
