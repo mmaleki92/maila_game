@@ -94,7 +94,7 @@ while not game_over:
             game_over = True
 
         xghost_change, yghost_change = movement(event, xghost_change, yghost_change)
-        
+
     xghost = xghost + xghost_change
     yghost = yghost + yghost_change
 
